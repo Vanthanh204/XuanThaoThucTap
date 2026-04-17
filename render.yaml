@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: goya-laravel
+    env: docker
+    plan: free
+    region: singapore
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        fromService:
+          name: goya-laravel
+          type: web
+          property: host
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: mysql
+      - key: MYSQL_ATTR_SSL_CA
+        value: /etc/ssl/certs/ca-certificates.crt
+      # Các biến DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD 
+      # bạn sẽ nhập thủ công trên Dashboard Render sau khi kết nối TiDB.
