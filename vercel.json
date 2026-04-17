@@ -1,14 +1,19 @@
 {
     "version": 2,
     "framework": null,
+    "buildCommand": "exit 0",
     "outputDirectory": ".",
     "functions": {
         "api/index.php": { "runtime": "vercel-php@0.6.0" }
     },
     "routes": [
         {
-            "src": "/(css|js|images|admin|clients|build)/(.*)",
+            "src": "/(css|js|images|admin|clients|build|vendors|assets)/(.*)",
             "dest": "/public/$1/$2"
+        },
+        {
+            "src": "/(favicon.ico|robots.txt)",
+            "dest": "/public/$1"
         },
         {
             "src": "/(.*)",
