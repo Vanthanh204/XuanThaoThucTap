@@ -1,19 +1,19 @@
 {
     "version": 2,
-    "outputDirectory": ".",
     "installCommand": "exit 0",
     "buildCommand": "exit 0",
+    "outputDirectory": "public",
     "functions": {
         "api/index.php": { "runtime": "vercel-php@0.9.0" }
     },
     "routes": [
         {
             "src": "/(css|js|images|admin|clients|build|vendors|assets)/(.*)",
-            "dest": "/public/$1/$2"
+            "dest": "/$1/$2"
         },
         {
             "src": "/(favicon.ico|robots.txt)",
-            "dest": "/public/$1"
+            "dest": "/$1"
         },
         {
             "src": "/(.*)",
